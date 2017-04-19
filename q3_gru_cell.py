@@ -65,7 +65,6 @@ class GRUCell(tf.contrib.rnn.BasicRNNCell):
         # be defined elsewhere!
         with tf.variable_scope(scope):
             ### YOUR CODE HERE (~20-30 lines)
-            #import code; code.interact(local=dict(globals(), **locals()))
             xav = tf.contrib.layers.xavier_initializer(uniform=True, seed=None, dtype=tf.float32)
             U_shape = [self.input_size, self.state_size]
             W_shape = [self.state_size, self.state_size]
@@ -145,7 +144,6 @@ def test_gru_cell():
                 y_, ht_ = session.run([y_var, ht_var], feed_dict={x_placeholder: x, h_placeholder: h})
                 print("y_ = " + str(y_))
                 print("ht_ = " + str(ht_))
-                #import code; code.interact(local=dict(globals(), **locals()))
                 assert np.allclose(y_, ht_), "output and state should be equal."
                 assert np.allclose(ht, ht_, atol=1e-2), "new state vector does not seem to be correct."
 
